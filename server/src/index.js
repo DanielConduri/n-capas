@@ -6,7 +6,7 @@ import { sequelize } from "./database/database.js";
 async function startServer(port) {
     try {
         //Sincroniza la base de datos
-        await sequelize.sync({ force: false, logging: false });
+        await sequelize.sync({ force: false});
         sequelize
             .authenticate() //Conectarse a la base de datos
             .then(() => {

@@ -2,6 +2,8 @@ import userRepository from '../repositories/userRepository.js';
 import userService from '../services/user.service.js';
 
 const createUser = async (req, res) => {
+
+
     try {
         const { name, age } = req.body;
         const user = await userService.createUser(req.body);
@@ -30,7 +32,23 @@ const getUsers = async (req, res) => {
     }
 }
 
+const getUserId = async (req, res) => {
+
+    try {
+        const userId = await userService.getUserId(req.params);
+        res.json(userId);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            status: false,
+            message: "Error en el servidor" + error,
+            body: [],
+        });
+    }
+}
+
 export default {
     createUser,
-    getUsers
+    getUsers,
+    getUserId
 }

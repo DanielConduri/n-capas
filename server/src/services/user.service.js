@@ -17,6 +17,24 @@ const createUser = async (parameter) => {
     }
 };
 
+const getUserId = async (parameter) => {
+    console.log(parameter)
+    try {
+        const getUserId = await userRepository.getUserId(parameter);
+        if (getUserId) {
+            return {
+                status: true,
+                message: "User Find",
+                body: getUserId,
+            }
+        }
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
+};
+
+
 const getUsers = async () => {
 
     try {
@@ -37,5 +55,6 @@ const getUsers = async () => {
 
 export default {
     createUser,
-    getUsers
+    getUsers,
+    getUserId
 }
