@@ -27,7 +27,19 @@ const getAllUsers = async () => {
     }
 };
 
+
+const getUserId = async (parameter) => {
+    try {
+        const userId = await User.findByPk(parameter.id);
+        return userId;
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+};
+
 export default {
     createUser,
-    getAllUsers
+    getAllUsers,
+    getUserId
 }
