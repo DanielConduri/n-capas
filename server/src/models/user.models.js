@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, NOW } from 'sequelize';
 import { sequelize } from '../database/database.js';
 
 export const User = sequelize.define(
@@ -17,10 +17,14 @@ export const User = sequelize.define(
         int_user_age: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        dt_date_creation: {
+            type: DataTypes.DATE,
+            defaultValue: NOW
         }
     },
     {
-        schema: "persons",
+        schema: "ventas",
         timestamps: false,
         freezeTableName: true,
     }
