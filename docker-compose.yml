@@ -7,9 +7,9 @@ services:
       - "8000"
     restart: always
     env_file: ./server/.env
+
     networks:
       - backend
-
   nginx:
     image: nginx:latest
     ports:
