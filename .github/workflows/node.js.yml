@@ -29,6 +29,9 @@ jobs:
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
           
+  variables:
+      - name: Verify .env creation
+        run: cat ./server/.env
 
   build:
     name: DEPLOY
@@ -36,4 +39,5 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: build
+        working-directory: ./
         run: docker-compose up --build -d
