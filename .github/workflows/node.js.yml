@@ -28,20 +28,6 @@ jobs:
           echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> .env
           echo DB_PORT=${{ secrets.DB_PORT }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-
-
-         # Instala Docker
-      - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-
-    # Instala Docker Compose
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-          docker-compose 
           
 
   build:
