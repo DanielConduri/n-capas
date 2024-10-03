@@ -2,7 +2,6 @@ import app from "./app.js";
 import { variableConfig } from "./config/variables.config.js";
 import { sequelize } from "./database/database.js";
 
-
 async function startServer(port) {
     try {
         //Sincroniza la base de datos
@@ -14,7 +13,6 @@ async function startServer(port) {
                 app.listen(port);   //Iniciar el servidor
                 console.log('Server is listening on port', port);
                 console.log('Connection has been established successfully');
-
             })
             .catch((err) => {
                 console.error("Unable to connect to the database:", err)
