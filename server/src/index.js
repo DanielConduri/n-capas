@@ -1,7 +1,6 @@
 import app from "./app.js";
 import { variableConfig } from "./config/variables.config.js";
 import { sequelize } from "./database/database.js";
-
 async function startServer(port) {
     try {
         //Sincroniza la base de datos
@@ -23,5 +22,4 @@ async function startServer(port) {
 
 // Start server main
 startServer(variableConfig.port)
-
 export default { startServer }
