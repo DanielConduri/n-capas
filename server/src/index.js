@@ -9,7 +9,6 @@ async function startServer(port) {
         sequelize
             .authenticate() //Conectarse a la base de datos
             .then(() => {
-
                 app.listen(port);   //Iniciar el servidor
                 console.log('Server is listening on port', port);
                 console.log('Connection has been established successfully');
