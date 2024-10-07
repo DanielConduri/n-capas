@@ -11,6 +11,14 @@ router.get('/info', (req, res) =>{
     })
 })
 
+router.get('/data', (req, res) =>{
+    res.json({
+        status: true,
+        message: "success",
+        version: 1.1
+    })
+})
+
 router.use('/users', usersRoute);
 
 
