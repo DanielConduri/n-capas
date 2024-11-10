@@ -24,6 +24,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run:
+      working-directory: ./server/src
         touch .env
         echo "${{secrets.PROD_ENV_NCAPAS }}" > .env
         echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
