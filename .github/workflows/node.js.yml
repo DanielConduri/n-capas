@@ -23,17 +23,17 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      
+      working-directory: ./server/src
     - run: |
 
-        touch .env
-        echo "${{secrets.PROD_ENV_NCAPAS }}" > .env
-        echo "DB_SERVER=${{ secrets.DB_SERVER }}" >> .env
-        echo "DB_USER=${{ secrets.DB_USER }}" >> .env
-        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
-        echo "DB_DIALECT=${{ secrets.DB_DIALECT }}" >> .env
-        echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
-        echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-        working-directory: ./server/src
+        touch ./server/src/.env
+        echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/src/.env
+        echo "DB_SERVER=${{ secrets.DB_SERVER }}" >> ./server/src/.env
+        echo "DB_USER=${{ secrets.DB_USER }}" >> ./server/src/.env
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> ./server/src/.env
+        echo "DB_DIALECT=${{ secrets.DB_DIALECT }}" >> ./server/src/.env
+        echo "DB_PORT=${{ secrets.DB_PORT }}" >> ./server/src/.env
+        echo "DB_NAME=${{ secrets.DB_NAME }}" >> ./server/src/.env
+        
     - run: pm2 restart BackendNCapas
       
