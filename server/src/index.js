@@ -19,7 +19,6 @@ async function startServer(port) {
         console.log(error.message)
     }
 }
-
 // Start server main
 startServer(variableConfig.port)
 export default { startServer }
