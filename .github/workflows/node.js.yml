@@ -26,7 +26,7 @@ jobs:
       working-directory: ./server/src
     - run:
       
-        touch .env
+        touch ./server/src/.env
         echo "${{secrets.PROD_ENV_NCAPAS }}" > .env
         echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
         echo DB_USER=${{ secrets.DB_USER }} >> .env
