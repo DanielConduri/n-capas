@@ -3,7 +3,7 @@ import usersRoute from './users.routes.js';
 
 const router = Router();
 
-router.get('/info', (req, res) =>{
+router.get('/apiv3/info', (req, res) =>{
     res.json({
         Nombre: "Daniel Tene",
         Descripcion: "Prueba Parcial II",
@@ -11,7 +11,7 @@ router.get('/info', (req, res) =>{
     })
 })
 
-router.get('/data', (req, res) =>{
+router.get('/apiv3/data', (req, res) =>{
     res.json({
         status: true,
         message: "success",
@@ -19,7 +19,7 @@ router.get('/data', (req, res) =>{
     })
 })
 
-router.use('/users', usersRoute);
+router.use('/apiv3/users', usersRoute);
 
 
 
