@@ -24,11 +24,10 @@ router.get('/apiv3/prod', (req, res) =>{
         status: true,
         message: "success",
         body: [
-            {id: 1, name: "Prod 1"},
-            {id: 2, name: "Prod 2"},
-            {id: 3, name: "Prod 3"}
-            
-
+            {id: 1, name: "Person 1", name: "Juan", age: 25},
+            {id: 2, name: "Person 2", name: "Daniel", age: 27},
+            {id: 3, name: "Person 3", name: "Ely", age: 24},
+            {id: 3, name: "Person 4", name: "Pedro", age: 29},
         ]
     })
 })
