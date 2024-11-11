@@ -24,9 +24,9 @@ router.get('/apiv3/prod', (req, res) =>{
         status: true,
         message: "success",
         body: [
-            {id: 1, name: "Person 1", name: "Juan", age: 25},
-            {id: 2, name: "Person 2", name: "Daniel", age: 27},
-            {id: 3, name: "Person 3", name: "Ely", age: 24},
+            {id: 1, name: "Person 1", name: "Juan", age: 25, city: "Ambato"},
+            {id: 2, name: "Person 2", name: "Daniel", age: 27, city: "Riobamba"},
+            {id: 3, name: "Person 3", name: "Ely", age: 24 city: "Quito"},
             {id: 4, name: "Person 4", name: "Pedro", age: 29},
             {id: 5, name: "Person 5", name: "Jonathan", age: 27},
         ]
