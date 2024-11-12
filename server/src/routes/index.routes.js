@@ -5,9 +5,15 @@ const router = Router();
 
 router.get('/apiv3/info', (req, res) =>{
     res.json({
-        Nombre: "Daniel Tene",
-        Descripcion: "Prueba Parcial II",
-        Semestre: "Octavo"
+        status: 200,
+        message: "successfully",
+        body: [
+            {
+                api: "n-capas",
+                port: 7000,
+                url: "/api"
+            }
+        ]
     })
 })
 
