@@ -12,7 +12,7 @@ router.get('/apiv3/info', (req, res) =>{
                 api: "n-capas",
                 port: 7000,
                 url: "/apiv3",
-                command: "pm2 start"
+                command: "pm2 start backen"
             }
         ]
     })

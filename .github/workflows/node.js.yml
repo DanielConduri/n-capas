@@ -1,9 +1,7 @@
 
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI/CD
-
 on:
   push:
     branches: [ "main" ]
@@ -13,8 +11,6 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
@@ -25,15 +21,10 @@ jobs:
     - run: npm ci
       working-directory: ./server/src
     - run: |
-
         touch ./server/src/.env
         echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/src/.env
-        #echo DB_SERVER=${{ secrets.DB_SERVER }} >> ./server/src/.env
-        #echo DB_USER=${{ secrets.DB_USER }} >> ./server/src/.env
-        #echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ./server/src/.env
-        #echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> ./server/src/.env
-        #echo DB_PORT=${{ secrets.DB_PORT }} >> ./server/src/.env
-        #echo DB_NAME=${{ secrets.DB_NAME }} >> ./server/src/.env
-        
     - run: pm2 restart BackendNCapas
       
+
+
+
