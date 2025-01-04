@@ -19,11 +19,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    #- run: npm test
       working-directory: ./server/src
     - run: |
         touch ./server/src/.env
         echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/src/.env
-    - run: pm2 restart BackendNCapas
+        docker-compose up --build -d 
+    #- run: pm2 restart BackendNCapas
       
 
 

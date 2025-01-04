@@ -1,26 +1,70 @@
-version: '3.9'
+#version: '3.9'
 
 services:
+  grafana:
+    image: grafana/grafana
+    ports:  
+      - 3000:3000
+    networks:
+      - backend
+  
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - backend
+  
+  # postgres:
+  #   image: postgres:latest
+  #   ports:
+  #     - 5432:5432
+  #   volumes:
+  #     - ./backup:/var/lib/postgresql/data  
+  #   environment:
+  #     POSTGRES_PASSWORD: postgrespassword
+  #     POSTGRES_DB: db_users
+  #   networks:
+  #     - backend
+
+  postgres-exporter:  
+    image: prometheuscommunity/postgres-exporter
+    ports:
+      - 9187:9187
+    environment:
+      #DATA_SOURCE_NAME: "postgresql://postgres:postgrespassword@postgres:5432/db_users?sslmode=disable"
+      DATA_SOURCE_NAME: "postgresql://postgres:dbDan.24@34.174.100.178:5432/db_store?sslmode=disable"
+    links:
+      - postgres
+      - prometheus
+    networks:
+      - backend
+
+
   api:
+    image: node-ncapas
+    container_name: container-api-node
     build: ./server
     expose:
       - "8000"
     restart: always
     env_file: ./server/.env
-
     networks:
       - backend
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d/
-    depends_on:
-      - api
-    restart: always
-    networks:
-      - backend
+  
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d/
+  #   depends_on:
+  #     - api
+  #   restart: always
+  #   networks:
+  #     - backend
 
 networks:
   backend:

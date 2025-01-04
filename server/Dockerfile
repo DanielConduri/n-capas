@@ -5,8 +5,8 @@ WORKDIR /usr/app
 COPY package*.json ./
 RUN npm i
 
-COPY . .
-
+#COPY . .
+COPY . /usr/app
 EXPOSE 8000
 
 CMD ["npm", "run", "dev"]
