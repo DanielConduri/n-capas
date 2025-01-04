@@ -20,10 +20,10 @@ jobs:
         cache: 'npm'
     - run: npm ci
     #- run: npm test
-      working-directory: ./server/src
+      working-directory: ./server
     - run: |
-        touch ./server/src/.env
-        echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/src/.env
+        touch ./server/.env
+        echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/.env
         docker-compose up --build -d 
     #- run: pm2 restart BackendNCapas
       
