@@ -24,7 +24,7 @@ jobs:
     - run: |
         touch ./server/.env
         echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/.env
-        docker-compose up --build -d 
+        sudo docker-compose up --build -d 
     #- run: pm2 restart BackendNCapas
       
 
