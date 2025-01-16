@@ -37,18 +37,19 @@ services:
       #DATA_SOURCE_NAME: "postgresql://postgres:postgrespassword@postgres:5432/db_users?sslmode=disable"
       DATA_SOURCE_NAME: "postgresql://postgres:dbDan.24@34.174.100.178:5432/db_store?sslmode=disable"
     links:
-      - postgres
+      #- postgres
       - prometheus
     networks:
       - backend
-
 
   api:
     image: node-ncapas
     container_name: container-api-node
     build: ./server
-    expose:
-      - "8000"
+    ports:
+      - 8000:8000
+    #expose:
+    #  - "8000"
     restart: always
     env_file: ./server/.env
     networks:
