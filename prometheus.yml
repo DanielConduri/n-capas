@@ -5,10 +5,11 @@ global:
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
-      - targets: ["prometheus:9090"]
-  - job_name: postgres-exporter
+      - targets: ["prometheus2.pruebasinventario.me"]
+  - job_name: 'postgres-exporter'
     static_configs:
       - targets: ["postgres-exporter:9187"]
-  - job_name: api
+  - job_name: 'api'
+    metrics_path: '/apiv3/metrics'
     static_configs:
-      - targets: ["localhost:8000"]
+      - targets: ["app2.pruebasinventario.me"]

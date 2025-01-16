@@ -5,8 +5,9 @@ services:
     image: grafana/grafana
     ports:  
       - 3000:3000
-    networks:
-      - backend
+    # networks:
+    #   - backend
+  network_mode: host 
   
   prometheus:
     image: prom/prometheus
@@ -14,8 +15,9 @@ services:
       - 9090:9090
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
-    networks:
-      - backend
+    # networks:
+    #   - backend
+    network_mode: host 
   
   # postgres:
   #   image: postgres:latest
@@ -39,8 +41,9 @@ services:
     links:
       #- postgres
       - prometheus
-    networks:
-      - backend
+    # networks:
+    #   - backend
+    network_mode: host 
 
   api:
     image: node-ncapas
@@ -52,8 +55,9 @@ services:
     #  - "8000"
     restart: always
     env_file: ./server/.env
-    networks:
-      - backend
+    network_mode: host  # Esto hace que el contenedor use la red del host directamente
+    # networks:
+    #   - backend
   
   # nginx:
   #   image: nginx:latest
@@ -67,5 +71,5 @@ services:
   #   networks:
   #     - backend
 
-networks:
-  backend:
+# networks:
+#   backend:
