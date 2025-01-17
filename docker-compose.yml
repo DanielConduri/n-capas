@@ -90,8 +90,7 @@ services:
   #     - backend
 
 volumes:
-  portainer_data:  docker volume create data-portainer
-    driver: local  # Usamos el driver local para persistencia de datos
+  portainer_data:
 
 networks:
   backend:
