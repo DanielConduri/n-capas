@@ -4,8 +4,6 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
-    # environment:
-    #   - GF_SECURITY_ADMIN_PASSWORD='admin.25'
     ports:  
       - 3000:3000
     # volumes:
@@ -54,12 +52,11 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
-
     ports: 
       - "8080:8080"
     restart: always
 
-       
+
   
   # postgres:
   #   image: postgres:latest
@@ -79,7 +76,6 @@ services:
     ports:
       - 9187:9187
     environment:
-      #DATA_SOURCE_NAME: "postgresql://postgres:postgrespassword@postgres:5432/db_users?sslmode=disable"
       DATA_SOURCE_NAME: "postgresql://postgres:dbDan.24@34.174.100.178:5432/db_store?sslmode=disable"
     links:
       #- postgres
@@ -94,12 +90,20 @@ services:
     build: ./server
     ports:
       - 8000:8000
-    #expose:
-    #  - "8000"
     env_file: ./server/.env
-    #network_mode: host  # Esto hace que el contenedor use la red del host directamente
     networks:
       - backend
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: namenode-exporter
+    ports:
+      - "9100: 9100"
+    restart: always
+    
+
+
+  
   
   # nginx:
   #   image: nginx:latest
