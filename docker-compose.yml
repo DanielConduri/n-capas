@@ -96,14 +96,14 @@ services:
 
   node-exporter:
     image: prom/node-exporter
-    container_name: namenode-exporter
+    container_name: node-exporter
     ports:
-      - "9100: 9100"
+      - "9100:9100"
     restart: always
+    networks:
+      - backend
     
 
-
-  
   
   # nginx:
   #   image: nginx:latest
