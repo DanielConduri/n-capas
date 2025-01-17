@@ -49,11 +49,11 @@ services:
     devices:
       - /dev/kmsg
     volumes:
-      - /:/rootfs:ro \
-      - /var/run:/var/run:ro \
-      - /sys:/sys:ro \
-      - /var/lib/docker/:/var/lib/docker:ro \
-      - /dev/disk/:/dev/disk:ro \
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
 
     ports: 
       - "8080:8080"
