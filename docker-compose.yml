@@ -19,7 +19,7 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
     depends_on:
       - grafana
-      - container-api-node
+      - api
     restart: always
     networks:
       - backend
