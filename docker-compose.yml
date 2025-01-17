@@ -19,8 +19,6 @@ services:
       - 9090:9090
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    #command: docker restart prometheus
-    #command: docker cp ./prometheus.yml prometheus:/etc/prometheus/prometheus.yml
     depends_on:
       - grafana
       - api
