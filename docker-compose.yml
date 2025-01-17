@@ -31,7 +31,7 @@ services:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      #- portainer_data:/data
     restart: always
     networks:
       - backend
@@ -89,8 +89,8 @@ services:
   #   networks:
   #     - backend
 
-volumes:
-  portainer_data:
+# volumes:
+#   portainer_data:
 
 networks:
   backend:
