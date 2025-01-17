@@ -1,16 +1,16 @@
 #version: '3.9'
 
 services:
-  # grafana:
-  #   image: grafana/grafana
-  #   container_name: grafana
-  #   ports:  
-  #     - 3000:3000
-  #   # volumes:
-  #   #   - grafana_data:/var/lib/grafana
-  #   restart: always
-  #   networks:
-  #     - backend
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:  
+      - 3000:3000
+    # volumes:
+    #   - grafana_data:/var/lib/grafana
+    restart: always
+    networks:
+      - backend
   
   prometheus:
     image: prom/prometheus
