@@ -16,7 +16,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
     depends_on:
       - grafana
       - api
@@ -24,16 +24,16 @@ services:
     networks:
       - backend
 
-  # portainer:
-  #   image: portainer/portainer-ce
-  #   container_name: portainer
-  #   ports:
-  #     - 9000:9000
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce
-  #   restart: always
-  #   networks:
-  #     - backend
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce
+    restart: always
+    networks:
+      - backend
     
   
   # postgres:
