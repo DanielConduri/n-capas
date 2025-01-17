@@ -8,23 +8,23 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        node-version: [18.x]
+    # strategy:
+    #   matrix:
+    #     node-version: [18.x]
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
+      - uses: actions/checkout@v4
+    # - name: Use Node.js ${{ matrix.node-version }}
+    #   uses: actions/setup-node@v4
+    #   with:
+    #     node-version: ${{ matrix.node-version }}
+    #     cache: 'npm'
+    # - run: npm ci
     #- run: npm test
       #working-directory: ./server
-    - run: |
-        touch ./server/.env
-        echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/.env
-        sudo docker-compose up --build -d 
+      - run: |
+          touch ./server/.env
+          echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/.env
+          sudo docker-compose up --build -d 
     #- run: pm2 restart BackendNCapas
       
 
