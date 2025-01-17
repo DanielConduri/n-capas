@@ -4,10 +4,12 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD='admin.25'
+    # environment:
+    #   - GF_SECURITY_ADMIN_PASSWORD='admin.25'
     ports:  
       - 3000:3000
+    # volumes:
+    #   - grafana_data:/var/lib/grafana
     restart: always
     networks:
       - backend
@@ -93,6 +95,8 @@ services:
 
 # volumes:
 #   portainer_data:
+#   grafana_data:
+#     driver: local
 
 networks:
   backend:
