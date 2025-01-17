@@ -66,7 +66,7 @@ services:
 
   api:
     image: node-ncapas
-    container_name: container-api-node
+    container_name: api-node
     build: ./server
     ports:
       - 8000:8000
