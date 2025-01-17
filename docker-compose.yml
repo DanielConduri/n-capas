@@ -83,7 +83,7 @@ services:
       - backend
 
   api:
-    #image: node-ncapas
+    image: node-ncapas
     container_name: api-node
     build: ./server
     ports:
