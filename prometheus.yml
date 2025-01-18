@@ -13,12 +13,12 @@ scrape_configs:
     #metrics_path: '/apiv3/metrics'
     static_configs:
       - targets: ['app2.pruebasinventario.me']
-  - job_name: 'grafana'
-    static_configs:
-      - targets: ['grafana2.pruebasinventario.me']
+  # - job_name: 'grafana'
+  #   static_configs:
+  #     - targets: ['grafana2.pruebasinventario.me']
   - job_name: 'cadvisor'
     static_configs:
       - targets: ['cadvisor2.pruebasinventario.me']
-  - job_name: 'node-exporter'
-    static_configs:
-      - targets: ["nodexporter2.pruebasinventario.me"]
+  # - job_name: 'node-exporter'
+  #   static_configs:
+  #     - targets: ["nodexporter2.pruebasinventario.me"]
