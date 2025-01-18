@@ -114,7 +114,7 @@ services:
   #     - backend
 
 volumes:
-  #portainer_data:
+  portainer_data:
   grafana_data:
     driver: local
 
