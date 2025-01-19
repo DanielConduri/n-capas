@@ -85,7 +85,7 @@ services:
     container_name: api-node
     build: ./server
     ports:
-      - 8000:8000
+      - "8000:8000"
     env_file: ./server/.env
     networks:
       - backend
