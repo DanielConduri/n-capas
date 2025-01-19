@@ -1,7 +1,7 @@
 import { Router } from "express";
 import usersRoute from './users.routes.js';
 import { variableConfig } from '../config/variables.config.js';
-import fetch from "node-fetch";
+//import fetch from "node-fetch";
 
 const router = Router();
 
@@ -12,9 +12,9 @@ router.get('/apiv3/info', (req, res) =>{
         body: [
             {
                 api: "n-capas",
-                port: 7000,
+                port: 8000,
                 url: "/apiv3",
-                // command: "pm2 start backen"
+                //command: "pm2 start backen"
             }
         ]
     })
