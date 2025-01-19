@@ -16,8 +16,6 @@ router.get('/apiv3/info', (req, res) =>{
                 url: "/apiv3",
                 sh: true,
                 docker_compose: 'v3',
-                update: "yes...!"
-                //command: "pm2 start backen"
             }
         ]
     })
