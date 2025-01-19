@@ -1,5 +1,7 @@
 import { Router } from "express";
 import usersRoute from './users.routes.js';
+import { variableConfig } from '../config/variables.config.js';
+import fetch from "node-fetch";
 
 const router = Router();
 
@@ -18,13 +20,31 @@ router.get('/apiv3/info', (req, res) =>{
     })
 })
 
-router.get('/apiv3/data', (req, res) =>{
+router.get('/apiv3/data', async(req, res) =>{
+
+    async function getDeployments(){
+        const urlActions = 'https://api.github.com/repos/DanielConduri/n-capas/actions/runs?page='
+        const response = await fetch(`${urlActions}${1}`, {
+            headers: { Authorization: `token ${variableConfig.token}` },
+        });
+        if (!response.ok) throw new Error(`Error fetching deployments: ${response.status}`);
+        return await response.json({});
+    }
+
+    const deployments = await getDeployments();
+    
+    
     res.json({
         status: true,
         message: "success",
-        version: 1.1
+        version: 1.1,
+        body: deployments
     })
+
+    
 })
+
+
 
 router.get('/apiv3/prod', (req, res) =>{
     res.json({
