@@ -82,7 +82,7 @@ services:
   api:
     image: node-ncapas
     container_name: api-node
-    command: ./src/start.sh
+    #command: ./src/start.sh
     build: ./server
     ports:
       - "8000:8000"

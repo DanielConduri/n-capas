@@ -5,7 +5,7 @@ else
     echo "El contenedor 'container-productos' no existe."
 fi
           
-if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "api-node"; then
+if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "node-ncapas"; then
     echo "Eliminando imagen 'api-node'..."
     docker rmi -f node-ncapas
 else
