@@ -14,6 +14,7 @@ router.get('/apiv3/info', (req, res) =>{
                 api: "n-capas",
                 port: 8000,
                 url: "/apiv3",
+                sh: true
                 //command: "pm2 start backen"
             }
         ]
