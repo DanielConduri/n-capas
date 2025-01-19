@@ -26,6 +26,7 @@ jobs:
           echo "${{secrets.PROD_ENV_NCAPAS }}" > ./server/.env
           chmod +x ./server/start.sh
           ./server/start.sh
+          echo "COMPOSE_HTTP_TIMEOUT=200" >> $GITHUB_ENV  # Establece el valor a 200 segundos
           sudo docker-compose up --build -d 
 
     #- run: pm2 restart BackendNCapas
