@@ -65,19 +65,19 @@ services:
   #   networks:
   #     - backend
 
-  # postgres-exporter:  
-  #   image: prometheuscommunity/postgres-exporter
-  #   container_name: postgres-exporter
-  #   ports:
-  #     - 9187:9187
-  #   environment:
-  #     DATA_SOURCE_NAME: "postgresql://postgres:dbDan.24@34.174.100.178:5432/db_store?sslmode=disable"
-  #   links:
-  #     #- postgres
-  #     - prometheus
-  #   restart: always
-  #   networks:
-  #     - backend
+  postgres-exporter:  
+    image: prometheuscommunity/postgres-exporter
+    container_name: postgres-exporter
+    ports:
+      - 9187:9187
+    environment:
+      DATA_SOURCE_NAME: "postgresql://postgres:dbDan.24@34.174.100.178:5432/db_store?sslmode=disable"
+    links:
+      #- postgres
+      - prometheus
+    restart: always
+    networks:
+      - backend
 
   api:
     image: node-ncapas
@@ -91,14 +91,14 @@ services:
     networks:
       - backend
 
-  # node-exporter:
-  #   image: prom/node-exporter
-  #   container_name: node-exporter
-  #   ports:
-  #     - "9100:9100"
-  #   restart: always
-  #   networks:
-  #     - backend
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    ports:
+      - "9100:9100"
+    restart: always
+    networks:
+      - backend
     
 
   
