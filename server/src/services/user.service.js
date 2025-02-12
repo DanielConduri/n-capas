@@ -18,13 +18,13 @@ const createUser = async (parameter) => {
 };
 
 const getUserId = async (parameter) => {
-    console.log(parameter)
+    //console.log(parameter)
     try {
         const getUserId = await userRepository.getUserId(parameter);
         if (getUserId) {
             return {
                 status: true,
-                message: "User Find",
+                message: "User found",
                 body: getUserId,
             }
         }

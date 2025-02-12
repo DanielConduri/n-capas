@@ -20,7 +20,7 @@ const createUser = async (parameter) => {
 const getAllUsers = async () => {
     try {
         const users = await User.findAll();
-        console.log(users)
+        //console.log(users)
         return users;
     } catch (error) {
         console.log(error);
