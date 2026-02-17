@@ -11,5 +11,13 @@ export const variableConfig = {
     dbDialect: process.env.DB_DIALECT,
     dbName: process.env.DB_NAME,
     dbPort: process.env.DB_PORT,
-    token: process.env.GITHUB_TOKEN
+    token: process.env.GITHUB_TOKEN,
+
+}
+
+
+export const configVariables = {
+    //urlServicioCentralizadoCedula:"https://servicioscomprobante.espoch.edu.ec/ServicioWebComprobantes/ServiciosComprobantes/ObtenerCebtralizadaCedula/",
+    urlServicioCentralizado: "https://centralizada2.espoch.edu.ec/rutadinardap/buscarRegistros/",
+    //urlServicioCentralizadoPersona: "https://centralizada2.espoch.edu.ec/rutadinardap/obtenerpersona/",
 }

@@ -3,6 +3,7 @@ import usersRoute from './users.routes.js';
 import  categoryRoute  from './category.routes.js';
 import  productRoute  from './product.routes.js';
 import { variableConfig } from '../config/variables.config.js';
+import centralizadaRoute from "./rutaExterna.routes.js";
 import fetch from "node-fetch";
 
 const router = Router();
@@ -66,6 +67,8 @@ router.get('/apiv3/prod', (req, res) =>{
 router.use('/apiv3/users', usersRoute);
 router.use('/apiv3/categories', categoryRoute);
 router.use('/apiv3/products', productRoute);
+router.use('/apiv3/centralizada', centralizadaRoute);
+
 
 
 export default router;
