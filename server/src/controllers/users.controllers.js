@@ -3,7 +3,6 @@ import userService from '../services/user.service.js';
 
 const createUser = async (req, res) => {
 
-
     try {
         const { name, age } = req.body;
         const user = await userService.createUser(req.body);

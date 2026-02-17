@@ -1,5 +1,7 @@
 import { Router } from "express";
 import usersRoute from './users.routes.js';
+import  categoryRoute  from './category.routes.js';
+import  productRoute  from './product.routes.js';
 import { variableConfig } from '../config/variables.config.js';
 import fetch from "node-fetch";
 
@@ -62,7 +64,8 @@ router.get('/apiv3/prod', (req, res) =>{
 })
 
 router.use('/apiv3/users', usersRoute);
-
+router.use('/apiv3/categories', categoryRoute);
+router.use('/apiv3/products', productRoute);
 
 
 export default router;
