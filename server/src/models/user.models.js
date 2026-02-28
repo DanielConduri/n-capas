@@ -2,29 +2,38 @@ import { DataTypes, NOW } from 'sequelize';
 import { sequelize } from '../database/database.js';
 
 export const User = sequelize.define(
-    'tb_user',
+    'rsvp_responses',
     {
-        int_user_id: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
         },
-        str_user_name: {
+        firstName: {
             type: DataTypes.STRING(50),
-            allowNull: false
+            allowNull: false,
+            field: 'first_name'
         },
-        int_user_age: {
+        cedula: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        dt_date_creation: {
+        guests: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        message: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        created_at: {
             type: DataTypes.DATE,
             defaultValue: NOW
         }
     },
     {
-        schema: "ventas",
+        schema: "seguridad",
         timestamps: false,
         freezeTableName: true,
     }

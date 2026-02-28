@@ -4,13 +4,8 @@ import { sequelize } from '../database/database.js';
 const createUser = async (parameter) => {
     try {
         const newUser = await userRepository.createUser(parameter);
-        if (newUser) {
-            return {
-                status: true,
-                message: "User created successfully",
-                body: newUser,
-            }
-        }
+        return newUser;
+        
     } catch (error) {
         console.error(error);
         return error;

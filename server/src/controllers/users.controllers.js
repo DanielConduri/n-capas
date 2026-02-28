@@ -2,7 +2,6 @@ import userRepository from '../repositories/userRepository.js';
 import userService from '../services/user.service.js';
 
 const createUser = async (req, res) => {
-
     try {
         const { name, age } = req.body;
         const user = await userService.createUser(req.body);
@@ -32,9 +31,10 @@ const getUsers = async (req, res) => {
 }
 
 const getUserId = async (req, res) => {
-
+    console.log('req.params', req.params)
     try {
         const userId = await userService.getUserId(req.params);
+        console.log('userId', userId)
         res.json(userId);
     } catch (error) {
         console.log(error);

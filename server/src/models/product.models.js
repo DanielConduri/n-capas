@@ -91,7 +91,7 @@ export const Product = sequelize.define(
         },
     },
     {
-        schema: "inventario",
+        schema: "seguridad",
         timestamps: false,
         freezeTableName: true,
     }

@@ -1,14 +1,24 @@
 import { User } from '../models/user.models.js'
+import { validateIdentification } from '../utils/util.js';
 
 
 const createUser = async (parameter) => {
+     if (!validateIdentification(parameter.cedula)) {
+      return {
+        message: "La cédula ingresada no es válida" ,
+        status: 400 
+      }
+    }
+
+    const user = await User.findOne({ where: { cedula: parameter.cedula } });
+    if(user) {
+        return {
+            status: false,
+            message: "EL usuario ya se encuentra registrado",
+        }
+    }
     try {
-        const newUser = await User.create(
-            {
-                str_user_name: parameter.name,
-                int_user_age: parameter.age
-            } 
-        );
+        const newUser = await User.create(parameter);
         return newUser;
     } catch (error) {
         console.log(error);
@@ -20,7 +30,6 @@ const createUser = async (parameter) => {
 const getAllUsers = async () => {
     try {
         const users = await User.findAll();
-        //console.log(users)
         return users;
     } catch (error) {
         console.log(error);
@@ -31,7 +40,7 @@ const getAllUsers = async () => {
 
 const getUserId = async (parameter) => {
     try {
-        const userId = await User.findByPk(parameter.id);
+        const userId = await User.findOne({ where: { cedula: parameter.id } });
         return userId;
     } catch (error) {
         console.log(error);
